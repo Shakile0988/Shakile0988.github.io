@@ -349,8 +349,8 @@ function heroIntro() {
   }
   tl.to('.hero .reveal', { opacity: 1, y: 0, duration: .8, stagger: .09, ease: 'power3.out' }, .45)
     .from('.portrait-stage', { y: 60, opacity: 0, scale: .92, duration: 1.1, ease: 'power3.out' }, .3)
-    .from('.p-chip', { scale: 0, opacity: 0, duration: .7, stagger: .12, ease: 'back.out(2)' }, .9)
-    .from('#nav', { opacity: 0, duration: .7, ease: 'power3.out' }, .5);
+    .from('.p-chip', { scale: 0, opacity: 0, duration: .7, stagger: .12, ease: 'back.out(2)' }, .9);
+  document.body.classList.add('booted');
 }
 const pre = $('#preloader');
 if (hasGSAP && !reduced) {
@@ -369,8 +369,11 @@ if (hasGSAP && !reduced) {
 } else {
   pre.style.display = 'none';
   $$('.hero .reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  document.body.classList.add('booted');
   heroIntro();
 }
+/* absolute fallback: never leave the nav hidden */
+setTimeout(() => document.body.classList.add('booted'), 4500);
 
 /* ═══ SCROLL ANIMATIONS ═══ */
 if (hasGSAP && window.ScrollTrigger && !reduced) {

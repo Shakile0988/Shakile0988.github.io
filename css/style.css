@@ -66,8 +66,10 @@ section{position:relative;padding:clamp(90px,12vh,150px) clamp(20px,6vw,90px)}
 
 /* ═══ Nav ═══ */
 #nav{position:fixed;top:0;left:0;right:0;z-index:110;display:flex;align-items:center;gap:34px;
-  padding:16px clamp(20px,4vw,44px);transition:transform .5s var(--ease),background .4s,border-color .4s;
-  border-bottom:1px solid transparent}
+  padding:16px clamp(20px,4vw,44px);transition:transform .5s var(--ease),background .4s,border-color .4s,opacity .8s ease;
+  border-bottom:1px solid transparent;opacity:0}
+body.booted #nav{opacity:1}
+.no-anim #nav{opacity:1}
 #nav.solid{background:rgba(7,7,16,.72);backdrop-filter:blur(18px);border-color:var(--line)}
 #nav.hide{transform:translateY(-110%)}
 .logo{font:700 24px var(--disp);display:flex;align-items:flex-end;position:relative}
