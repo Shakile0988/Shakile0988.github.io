@@ -142,9 +142,19 @@ LAB.forEach(v => {
 MEDIA.hydrate(rail);
 
 /* ═══ PROOF: quotes + chat rail ═══ */
-$('#quotes').innerHTML = D.testimonials.map(t => t.note
-  ? `<blockquote class="quote q-note"><p>${t.quote}</p><footer><b>${t.who}</b></footer></blockquote>`
-  : `<blockquote class="quote"><div class="q-stars">★★★★★</div><p>${t.quote}</p><footer><b>${t.who}</b>${t.where ? ' · ' + t.where : ''}<span class="q-verified">verified client review</span></footer></blockquote>`).join('');
+const AV_HUES = [[86, 160], [265, 190], [16, 46]];
+$('#quotes').innerHTML = D.testimonials.map((t, i) => {
+  if (t.note) return `<blockquote class="quote q-note"><p>${t.quote}</p><footer><b>${t.who}</b></footer></blockquote>`;
+  const [h1, h2] = AV_HUES[i % AV_HUES.length];
+  return `<blockquote class="quote">
+    <div class="q-head">
+      <span class="q-av" style="background:linear-gradient(135deg,hsl(${h1} 75% 42%),hsl(${h2} 80% 34%))">${t.who[0].toUpperCase()}</span>
+      <div class="q-id"><b>${t.who}</b><span>${t.where} · Verified client</span></div>
+      <div class="q-stars">★★★★★</div>
+    </div>
+    <p>${t.quote}</p>
+  </blockquote>`;
+}).join('');
 const chatRail = $('#chat-rail');
 D.proof.forEach((im, i) => {
   const el = document.createElement('div');

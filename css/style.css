@@ -234,8 +234,14 @@ em.outline{font-style:normal;color:transparent;-webkit-text-stroke:1.2px #e8ffe0
 .quote p{font-size:14.5px;color:#d9ded4}
 .quote footer{margin-top:14px;font:600 11.5px var(--mono);color:var(--muted);letter-spacing:.06em}
 .quote footer b{color:var(--lime)}
-.q-stars{color:#ffd76b;font-size:14px;letter-spacing:3.5px;margin-bottom:9px}
-.q-verified{display:block;margin-top:5px;font:500 10px var(--mono);color:#5c6662;letter-spacing:.1em;text-transform:uppercase}
+.q-stars{color:#ffd76b;font-size:13.5px;letter-spacing:3px;white-space:nowrap}
+.q-head{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.q-av{width:46px;height:46px;flex:0 0 46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font:700 19px var(--disp);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.5),inset 0 0 0 1.5px rgba(255,255,255,.18);text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.q-id{flex:1;min-width:0}
+.q-id b{display:block;font:600 14.5px var(--body);color:var(--txt)}
+.q-id span{font:500 10.5px var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.quote>p{margin-top:2px}
 .quote.q-note{background:linear-gradient(120deg,rgba(181,255,77,.05),rgba(77,255,199,.04));border-color:rgba(181,255,77,.25)}
 .quote.q-note p{color:var(--txt);font-weight:500}
 .quote.q-note::before{content:"∞"}
