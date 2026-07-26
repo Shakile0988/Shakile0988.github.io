@@ -314,7 +314,7 @@ function heroIntro() {
   if (!hasGSAP) return;
   const tl = gsap.timeline();
   if (window.SplitType) {
-    $$('.h1-line').forEach(l => new SplitType(l, { types: 'chars' }));
+    $$('.h1-line').forEach(l => new SplitType(l, { types: 'words,chars' }));
     tl.from('.hero-h1 .char', { yPercent: 118, rotateX: -45, opacity: 0, transformPerspective: 600, duration: 1, stagger: .02, ease: 'power4.out' }, .1);
   } else {
     tl.from('.hero-h1', { y: 40, opacity: 0, duration: .9, ease: 'power3.out' }, .1);
@@ -360,9 +360,10 @@ if (hasGSAP && window.ScrollTrigger && !reduced) {
     });
     const ch = $('.contact-h');
     if (ch) {
-      const st = new SplitType(ch, { types: 'chars' });
+      const st = new SplitType(ch, { types: 'words,chars' });
       gsap.set(st.chars, { yPercent: 110, opacity: 0 });
-      gsap.to(st.chars, { yPercent: 0, opacity: 1, duration: .75, stagger: .022, ease: 'back.out(1.5)', scrollTrigger: { trigger: ch, start: 'top 85%' } });
+      gsap.to(st.chars, { yPercent: 0, opacity: 1, duration: .75, stagger: .022, ease: 'back.out(1.5)', scrollTrigger: { trigger: ch, start: 'top 85%', once: true } });
+      setTimeout(() => gsap.to(st.chars, { opacity: 1, yPercent: 0, duration: .5, overwrite: false }), 6500);
     }
   }
   $$('[data-count]').forEach(el => {
