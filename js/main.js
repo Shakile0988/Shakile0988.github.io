@@ -142,8 +142,9 @@ LAB.forEach(v => {
 MEDIA.hydrate(rail);
 
 /* ═══ PROOF: quotes + chat rail ═══ */
-$('#quotes').innerHTML = D.testimonials.map(t =>
-  `<blockquote class="quote"><p>${t.quote}</p><footer><b>${t.who}</b> · ${t.where}</footer></blockquote>`).join('');
+$('#quotes').innerHTML = D.testimonials.map(t => t.note
+  ? `<blockquote class="quote q-note"><p>${t.quote}</p><footer><b>${t.who}</b></footer></blockquote>`
+  : `<blockquote class="quote"><div class="q-stars">★★★★★</div><p>${t.quote}</p><footer><b>${t.who}</b>${t.where ? ' · ' + t.where : ''}<span class="q-verified">verified client review</span></footer></blockquote>`).join('');
 const chatRail = $('#chat-rail');
 D.proof.forEach((im, i) => {
   const el = document.createElement('div');

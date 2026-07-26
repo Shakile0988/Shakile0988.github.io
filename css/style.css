@@ -234,6 +234,11 @@ em.outline{font-style:normal;color:transparent;-webkit-text-stroke:1.2px #e8ffe0
 .quote p{font-size:14.5px;color:#d9ded4}
 .quote footer{margin-top:14px;font:600 11.5px var(--mono);color:var(--muted);letter-spacing:.06em}
 .quote footer b{color:var(--lime)}
+.q-stars{color:#ffd76b;font-size:14px;letter-spacing:3.5px;margin-bottom:9px}
+.q-verified{display:block;margin-top:5px;font:500 10px var(--mono);color:#5c6662;letter-spacing:.1em;text-transform:uppercase}
+.quote.q-note{background:linear-gradient(120deg,rgba(181,255,77,.05),rgba(77,255,199,.04));border-color:rgba(181,255,77,.25)}
+.quote.q-note p{color:var(--txt);font-weight:500}
+.quote.q-note::before{content:"∞"}
 .chats-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:22px;flex-wrap:wrap}
 .chats-head h3{font:600 clamp(20px,2.6vw,28px) var(--disp)}
 .chats-head span{font:500 12px var(--mono);color:var(--muted)}
