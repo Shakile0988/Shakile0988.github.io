@@ -402,6 +402,15 @@ if (hasGSAP && window.ScrollTrigger && !reduced) {
     gsap.fromTo(nxt, { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .55, ease: 'power3.out', delay: .16 });
   }, 2600);
   gsap.set(words[0], { yPercent: 0, opacity: 1 });
+
+  /* layout settles late (async b64 media) — recalc trigger positions */
+  addEventListener('load', () => { setTimeout(() => ScrollTrigger.refresh(), 900); setTimeout(() => ScrollTrigger.refresh(), 2600); });
+  /* failsafe: nothing stays hidden if a trigger was missed */
+  setTimeout(() => {
+    $$('.card,.lab-card,.quote,.chat-card,.step,.ch-num,.reveal').forEach(el => {
+      if (parseFloat(getComputedStyle(el).opacity) < .5) gsap.to(el, { opacity: 1, y: 0, x: 0, duration: .6, ease: 'power2.out', clearProps: 'transform' });
+    });
+  }, 6000);
 } else {
   $$('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
   const words = $$('.rot-words b');
